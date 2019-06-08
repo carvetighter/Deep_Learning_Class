@@ -182,12 +182,12 @@ test_image_00 = image.img_to_array(test_image_00)
 test_image_00 = numpy.expand_dims(test_image_00, axis = 0)
 
 array_result_00 = classifier.predict(test_image_00)
-print(dict_rev_class.get(array_result_00[0][0]), 'None')
+print(dict_rev_class.get(int(array_result_00[0][0]), 'None'))
 
 # test cat image
-test_image_01 = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
+test_image_01 = image.load_img('dataset/single_prediction/cat_or_dog_2.jpg', target_size = (64, 64))
 test_image_01 = image.img_to_array(test_image_01)
 test_image_01 = numpy.expand_dims(test_image_01, axis = 0)
 
 array_result_01 = classifier.predict(test_image_01)
-print(dict_rev_class.get(array_result_00[0][0]), 'None')
+print(dict_rev_class.get(int(array_result_01[0][0]), 'None'))
