@@ -1,0 +1,4 @@
+# directories to ignore
+__pycache__
+cnn/dataset
+.vscode
