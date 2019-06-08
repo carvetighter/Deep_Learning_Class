@@ -154,6 +154,9 @@ classifier.fit_generator(training_set,
                          validation_data = test_set,
                          validation_steps = 2000) # num of images in test set
 
+# will swave to the working directory
+classifier.save('cnn.h5')
+
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
 #
@@ -164,10 +167,14 @@ classifier.fit_generator(training_set,
 
 import numpy
 from keras.preprocessing import image
+from keras.models import load_model
 
 dict_rev_class = dict()
 for key, value in training_set.class_indices.items():
     dict_rev_class[value] = key
+
+# load cnn if not used or present in memory
+classifier = load_model('cnn.h5')
 
 # test dog image
 test_image_00 = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
