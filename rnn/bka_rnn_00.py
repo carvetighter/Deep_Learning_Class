@@ -183,11 +183,12 @@ predicted_stock_price = sc.inverse_transform(predicted_stock_price)
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
 
-pyplot.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
-pyplot.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
-pyplot.title('Google Stock Price Prediction')
+fig, ax = pyplot.subplots(1, 1)
+ax.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
+ax.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
+fig.suptitle('Google Stock Price Prediction')
 pyplot.xlabel('Time')
 pyplot.ylabel('Google Stock Price')
 pyplot.legend()
-pyplot.show()
-
+fig.savefig('google_prices.png')
+#fig.show()
