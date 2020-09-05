@@ -245,7 +245,7 @@ accuracies = cross_val_score(
                 X = X_train,
                 y = y_train,
                 cv = 10,
-                n_jobs = 1)
+                n_jobs = -1)
 mean_accuracies = accuracies.mean()
 var_accuracies = accuracies.std()
 
