@@ -144,12 +144,12 @@ for epoch in range(1, nb_epoch + 1):
             train_loss += np.sqrt(loss.data * mean_corrector)
             s += 1.
             optimizer.step() # determines intensity
-    print('epoch: {}, loss: {}'.format(epoch, trainloss / s)
-'''
+    print('epoch: {}, loss: {}'.format(epoch, train_loss / s))
+
 # Testing the SAE
 test_loss = 0
 s = 0.
-for id_user in range(nb_users):
+for id_user in range(0, nb_users):
     input = Variable(training_set[id_user]).unsqueeze(0)
     target = Variable(test_set[id_user]).unsqueeze(0)
     if torch.sum(target.data > 0) > 0:
@@ -160,5 +160,4 @@ for id_user in range(nb_users):
         mean_corrector = nb_movies / float(torch.sum(target.data > 0) + 1e-10)
         test_loss += np.sqrt(loss.data * mean_corrector)
         s += 1.
-print('test loss: {}'.format(test_loss / s))
-'''
+print('\ntest loss: {}'.format(test_loss / s))
